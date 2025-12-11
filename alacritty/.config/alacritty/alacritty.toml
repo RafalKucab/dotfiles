@@ -1,0 +1,15 @@
+[window]
+startup_mode = "Maximized"
+option_as_alt = "Both"
+
+[font]
+normal = { family = "Hack Nerd Font Mono", style = "Regular" }
+size = 14
+offset.y = 4
+
+[keyboard]
+bindings = [
+  { key = "Right", mods = "Alt", chars = "\u001BF" },
+  { key = "Left",  mods = "Alt", chars = "\u001BB" },
+]
+
