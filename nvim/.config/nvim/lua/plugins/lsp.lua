@@ -37,7 +37,14 @@ return {
 
       vim.lsp.config("lua_ls", { capabilities = capabilities })
       vim.lsp.config("elmls", { capabilities = capabilities })
-      vim.lsp.config("rust_analyzer", {})
+      vim.lsp.config("rust_analyzer", {
+        rustfmt = {
+          extraArgs = {
+            "--config-path",
+            vim.fn.getcwd() .. "/.rustfmt.toml",
+          },
+        },
+      })
     end,
   },
   {

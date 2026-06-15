@@ -9,7 +9,7 @@ offset.y = 4
 
 [keyboard]
 bindings = [
-  { key = "Right", mods = "Alt", chars = "\u001BF" },
-  { key = "Left",  mods = "Alt", chars = "\u001BB" },
+  { key = "Right", mods = "Alt", chars = "\u001B[1;3C" },
+  { key = "Left",  mods = "Alt", chars = "\u001B[1;3D" },
 ]
 

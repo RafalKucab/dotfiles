@@ -86,6 +86,12 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 alias ls='eza'
 alias lt='eza --tree --level=2 --long --icons --git'
 
+# Option+Arrow word navigation (matches alacritty [1;3C/D sequences)
+bindkey '\e[1;3C' forward-word
+bindkey '\e[1;3D' backward-word
+bindkey -M viins '\e[1;3C' forward-word
+bindkey -M viins '\e[1;3D' backward-word
+
 # shell integrations
 eval "$(fzf --zsh)"
 
