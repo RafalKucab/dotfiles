@@ -1,25 +1,35 @@
+-- on top of LazyVim's editor.telescope extra
 return {
-  {
-    'nvim-telescope/telescope.nvim',
-    dependencies = {
-      'nvim-lua/plenary.nvim',
-      { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' }
+  "nvim-telescope/telescope.nvim",
+  keys = {
+    {
+      "<leader>sf",
+      function()
+        require("telescope.builtin").find_files()
+      end,
+      desc = "Search Files (cwd)",
     },
-    config = function()
-      require("telescope").load_extension("fzf")
-    end
+    {
+      "<leader>se",
+      function()
+        require("telescope.builtin").buffers({ sort_lastused = true, ignore_current_buffer = true })
+      end,
+      desc = "Buffers",
+    },
   },
-  {
-    "nvim-telescope/telescope-ui-select.nvim",
-    config = function()
-      require("telescope").setup({
-        extensions = {
-          ["ui-select"] = {
-            require("telescope.themes").get_dropdown({}),
-          },
-        },
-      })
-      require("telescope").load_extension("ui-select")
-    end,
+  opts = {
+    defaults = {
+      -- live grep matches literal strings, not regex
+      vimgrep_arguments = {
+        "rg",
+        "--color=never",
+        "--no-heading",
+        "--with-filename",
+        "--line-number",
+        "--column",
+        "--smart-case",
+        "--fixed-strings",
+      },
+    },
   },
 }
